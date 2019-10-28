@@ -12,9 +12,6 @@ script:
 
 script: "bundle exec rake test:$TEST_SUITE"
 
-env:
-- TEST_SUITE=units
-- TEST_SUITE=integration
 
 deploy:
   provider: pages
