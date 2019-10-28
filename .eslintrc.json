@@ -44,6 +44,7 @@
     "DEBUG": false
   },
   "rules": {
+    "no-underscore-dangle": "off",
     "semi": [
       2,
       "never"

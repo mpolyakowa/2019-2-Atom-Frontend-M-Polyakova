@@ -1,6 +1,4 @@
-import { userInfo } from "os";
-
-const template = document.createElement('template');
+const template = document.createElement('template')
 template.innerHTML = `
     <style>
     form {
@@ -48,38 +46,36 @@ template.innerHTML = `
        
         <form-input name="message-text" placeholder="Введите сообщение"></form-input>
     </form>
-`;
+`
 
 class MessageForm extends HTMLElement {
-    constructor () {
-        super();
-        this._shadowRoot = this.attachShadow({ mode: 'open' });
-        this._shadowRoot.appendChild(template.content.cloneNode(true));
-        this.$form = this._shadowRoot.querySelector('form');
-        this.$input = this._shadowRoot.querySelector('form-input');
-        this.$message = this._shadowRoot.querySelector('some-message');
-        this.$user = this._shadowRoot.querySelector('.user');
-        this.$user.innerHTML = "User";
-        this.$online = this._shadowRoot.querySelector('.online');
-        this.$online.innerHTML = "online";
-        this.$form.addEventListener('submit', this._onSubmit.bind(this));
-        this.$form.addEventListener('keypress', this._onKeyPress.bind(this));
-    }
+  constructor () {
+    super()
+    this._shadowRoot = this.attachShadow({ mode: 'open' })
+    this._shadowRoot.appendChild(template.content.cloneNode(true))
+    this.$form = this._shadowRoot.querySelector('form')
+    this.$input = this._shadowRoot.querySelector('form-input')
+    this.$message = this._shadowRoot.querySelector('some-message')
+    this.$user = this._shadowRoot.querySelector('.user')
+    this.$user.innerHTML = "User"
+    this.$online = this._shadowRoot.querySelector('.online')
+    this.$online.innerHTML = "online"
+    this.$form.addEventListener('submit', this._onSubmit.bind(this))
+    this.$form.addEventListener('keypress', this._onKeyPress.bind(this))
+  }
 
 
-    _onSubmit (event) {
-        event.preventDefault();
-        this.$message.setMessage(this.$input.value)
-        this.$input.setAttribute('value', '')
-        window.scrollTo(0,this._shadowRoot.querySelector(".result").scrollHeight);
-    }
+  _onSubmit (event) {
+    event.preventDefault()
+    this.$message.setMessage(this.$input.value)
+    this.$input.setAttribute('value', '')
+  }
 
-    
-    _onKeyPress (event) {
-        if (event.keyCode == 13 && this.$input.value !== '') {
-            this.$form.dispatchEvent(new Event('submit'));
-        }
+  _onKeyPress (event) {
+    if (event.keyCode === 13 && this.$input.value !== '') {
+      this.$form.dispatchEvent(new Event('submit'))
     }
+  }
 }
 
-customElements.define('message-form', MessageForm);
+customElements.define('message-form', MessageForm)
