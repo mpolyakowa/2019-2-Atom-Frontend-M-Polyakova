@@ -10,8 +10,6 @@ script:
   - npm run test
   - npm run build
 
-script: "bundle exec rake test:$TEST_SUITE"
-
 
 deploy:
   provider: pages
