@@ -2,7 +2,8 @@ const template = document.createElement('template')
 template.innerHTML = `
     <style>
         .message {
-      
+            animation-duration: 1s;
+            animation-name: appear;
             margin: 10px;
             width: 15%;
             color: rgba(0, 0, 0, 0.87);
@@ -10,6 +11,17 @@ template.innerHTML = `
             align-self: flex-end;
             word-wrap: break-word;
         }
+
+        @keyframes appear {
+          from {
+            background-color: rgba(210, 36, 170, 0.1);  
+          }
+        
+          to {
+            background-color: rgba(210, 36, 170, 0.17);
+          }
+        }
+
         .result {
             margin-bottom: 15px;
             background-color: rgba(0,0,0,0.08);  
@@ -60,6 +72,7 @@ class SomeMessage extends HTMLElement {
     Time.innerHTML = time
     Mess.appendChild(Time)
     this.$message.appendChild(Mess)
+
   }
 
   setMessage(val) {
