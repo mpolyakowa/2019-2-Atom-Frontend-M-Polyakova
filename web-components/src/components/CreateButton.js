@@ -49,16 +49,47 @@ template.innerHTML = `
 
 		.elem {
 			position: relative;
-            height: 50px;   
+            height: 30px;   
             width: 8px;
             background-color: #fff;
             transform:rotate(45deg);
 		}
 
+		.elem1 {
+			position: relative;
+            height: 10px;   
+			width: 8px;
+			top: 5px;
+			left: 15px;
+            background-color: #fff;
+            transform:rotate(45deg);
+		}
+		.elem2 {
+			position: relative;
+            height: 6px;   
+			width: 8px;
+			right: 14px;
+			bottom: 4px;
+            background-color: #fff;
+			transform:rotate(45deg);
+		}
+
+		.elem3 {
+			position: relative;         
+			bottom: 6px;
+			right: 19px;
+			transform:rotate(45deg);
+			border: 4px solid transparent;	
+			border-top: 4px solid white;
+		}
+
 	</style>
 	
 	<div class="container">
+		<div class="elem1"></div>
 		<div class="elem"></div>
+		<div class="elem2"></div>
+		<div class="elem3"></div>
 	</div>
 
 `

@@ -157,7 +157,7 @@ class Hat extends HTMLElement {
     this.$burger.addEventListener('click', this._ClickONBurger.bind(this))
     this.$list = this._shadowRoot.querySelector('.list')
     this.$text.addEventListener('keypress', this._onKeyPress.bind(this))
-    this.$text.addEventListener('onchange', this._onChange.bind(this))
+    this.$text.addEventListener('onchange', this._onChange)
 
   }
 

@@ -13,8 +13,23 @@ template.innerHTML = `
         height: 10vh;
         background-color: #8E24AA;
         display: flex;
-        flex-direction: column;
-        justify-content: flex-end;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .container {
+      display: flex;
+      flex-direction: column;
+      margin-left: 15px;
+    }
+
+    .big_container {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+      flex-grow: 1;
     }
 
     .user {
@@ -27,9 +42,115 @@ template.innerHTML = `
         font-weight: lighter;
         color: grey;
     }
+
+    .avatar {
+      background-color: grey;
+      width: 70px;
+      height: 70px;
+      border: 3px #fff solid;
+      border-radius: 100%;
+    }
+
+    .search {
+      border: 0;
+      height: 60px; 
+      width: 60px;
+      background: #8E24AA;
+      cursor: pointer;
+      margin-right: 10px;
+  }
+
+  .circle {
+      position: relative;
+      width: 20px;
+      border: 3px #fff solid;
+      border-radius: 100%;
+      margin-top: 10px;
+      margin-left: 6px;
+      content: '';
+      height: 20px;
+      top: 3px;
+      display: block;
+      
+  }
+
+  .handle {
+      position: relative;
+      height: 16px;   
+      width: 4px;
+      left: 30px;
+      bottom: 4px;
+      background-color: #fff;
+      transform:rotate(-45deg);  
+  }
+
+  .back {
+    height: 60px; 
+    width: 60px;  
+    cursor: pointer;
+  }
+
+  .back_top {
+    position: relative;
+    height: 20px;
+    width: 3px;
+    background-color: #fff;
+    transform:rotate(45deg);
+    left: 25px;
+    top: 15px;
+  }
+
+  .back_bottom {
+    position: relative;
+    height: 20px;
+    width: 3px;
+    background-color: #fff;
+    transform:rotate(-45deg);
+    left: 25px;
+    bottom: 17px;
+  }
+
+  .back_middle {
+    position: relative;
+    height: 25px;
+    width: 3px;
+    background-color: #fff;
+    transform:rotate(90deg);
+    left: 31px;
+    bottom: 1px;
+  }
+
+  .settings {
+    height: 60px; 
+    width: 60px; 
+    cursor: pointer;
+  }
+
+  .settings_top {
+    position: relative;
+    width: 5px;
+    border: 1px #fff solid;
+    border-radius: 100%;
+    content: '';
+    height: 5px;
+    display: block;
+    background: #fff;
+    left: 27px;
+    top: 16px;
+    margin-bottom: 4px;
+  }
+
+  .clip {
+    position: relative;
+    height: 20px; 
+    width: 30px;
+  }
+
+ 
+
     
     .form-input {
-        height: 5vh;
+        height: 10vh;
         width: 100%;
     }
         input[type=submit] {
@@ -39,12 +160,32 @@ template.innerHTML = `
     <form>
         
         <div class="top">
-            <div class="user"></div>
-            <div class="online"></div>
+            <div class="back">
+              <div class="back_top"> </div>
+              <div class="back_middle"> </div>
+              <div class="back_bottom"> </div>
+            </div>
+            <div class="big_container">
+              <div class="avatar"> </div>
+              <div class="container">
+                <div class="user"> </div>
+                <div class="online"> </div>
+              </div>
+            </div>
+            <div class="search"> 
+              <div class="circle"> </div>
+              <div class="handle"> </div>
+            </div>
+            <div class="settings">
+              <div class="settings_top"></div>
+              <div class="settings_top"></div>
+              <div class="settings_top"></div>
+            </div>
         </div>
         <some-message></some-message>
-       
-        <form-input name="message-text" placeholder="Введите сообщение"></form-input>
+        <div class="input_container">
+        <form-input name="message-text" placeholder="Введите сообщение"> </form-input>
+        </div>
     </form>
 `
 
@@ -63,7 +204,6 @@ class MessageForm extends HTMLElement {
     this.$form.addEventListener('submit', this._onSubmit.bind(this))
     this.$form.addEventListener('keypress', this._onKeyPress.bind(this))
   }
-
 
   _onSubmit (event) {
     event.preventDefault()

@@ -1,10 +1,10 @@
 const template = document.createElement('template')
 template.innerHTML = `
     <style>
-        .form {
+        form {
             display: flex;
             flex-direction: column;
-            height: 100 vh;
+            height: 100 %;
             width: 100 vw;
 
         }
@@ -14,9 +14,9 @@ template.innerHTML = `
         <chat-hat></chat-hat>
         
         <some-chat> </some-chat>
-        
+        <create-button></create-button>
     </form>
-    <create-button></create-button>
+    
 
 `
 

@@ -2,10 +2,11 @@ const template = document.createElement('template')
 template.innerHTML = `
     <style>
         .message {
-            animation-duration: 1s;
-            animation-name: appear;
             margin: 10px;
-            width: 15%;
+            min-width: 10%;
+            max-width: 20%;
+            padding: 8px;
+            min-height: 40px;
             color: rgba(0, 0, 0, 0.87);
             background-color: rgba(210, 36, 170, 0.17);
             align-self: flex-end;
@@ -14,7 +15,7 @@ template.innerHTML = `
 
         @keyframes appear {
           from {
-            background-color: rgba(210, 36, 170, 0.1);  
+            background-color: rgba(210, 36, 170, 0);  
           }
         
           to {
@@ -71,6 +72,8 @@ class SomeMessage extends HTMLElement {
     Mess.innerHTML = text
     Time.innerHTML = time
     Mess.appendChild(Time)
+    Mess.style.animationName = 'appear'
+    Mess.style.animationDuration = '1s'
     this.$message.appendChild(Mess)
 
   }
