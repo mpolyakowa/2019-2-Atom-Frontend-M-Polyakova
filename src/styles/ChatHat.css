@@ -1,0 +1,124 @@
+.hat {
+  width: 100%;
+  height: 12vh;
+  background-color: #8E24AA;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+#box {
+  opacity: 0;
+}
+
+.hatContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.btn {
+  left: 0px;
+  position: relative;
+  height: 30px;
+  width: 30px;
+  cursor: pointer;
+  bottom: 5px;
+  left: 10px;
+} 
+.btn > span,
+.btn > span::before,
+.btn > span::after {
+    
+  position: absolute;
+  background-color: white;
+  width: 100%;
+  height: 2px;
+}
+
+.btn > span::before {
+  content: '';
+  top: -8px;
+}
+
+.btn > span::after {
+  content: '';
+  top: 8px;
+}
+
+.list {
+  visibility: hidden;
+  background-color: rgba(210, 36, 170);
+  display:flex;
+  justify-content: space-evently;
+  top: 10vh;
+  position: absolute;
+  flex-direction: column;
+  left: 0;
+}
+
+.list > li {
+  padding: 10px;
+}
+
+#box:checked ~ .list {
+  visibility: visible;
+  left: 0;
+}
+
+.Name {
+  color: white;
+  margin-left: 30px;
+  
+}
+
+.search {
+  border: 0;
+  height: 60px; 
+  width: 60px;
+  background: #8E24AA;
+  cursor: pointer;
+  margin-right: 10px;
+}
+.search:focus {
+  outline: 0;
+}
+
+.circle {
+  position: relative;
+  width: 20px;
+  border: 3px #fff solid;
+  border-radius: 100%;
+  margin-top: 10px;
+  margin-left: 6px;
+  content: '';
+  height: 20px;
+  display: block;
+    
+}
+
+.handle {
+  position: relative;
+  height: 16px;   
+  width: 4px;
+  left: 30px;
+  bottom: 7px;
+  background-color: #fff;
+  transform:rotate(-45deg);  
+}
+
+.searchInput {
+  flex-grow: 1;
+  visibility: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  margin-left: 10px;
+}
+
+input { 
+  height: 30px;
+  font-size: 20px;
+  display: block;
+}
