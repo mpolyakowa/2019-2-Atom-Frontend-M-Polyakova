@@ -48,18 +48,32 @@
 }
 
 .list {
-  width: 20vw;
-  background-color: #8e24aa;
+  width: 25vw;
+  height: 100vh;
+  background-color: rgb(142, 36, 170, 0.9);
   display: flex;
   justify-content: space-evently;
-  top: 8.3vh;
+  top: 10.1vh;
   position: fixed;
   flex-direction: column;
   left: 0;
 }
 
-.list > li {
+/* .goToProfile {
   padding: 10px;
+  width: 20vw;
+  background-color: #8e24aa;
+  border: 0;
+  font-size: 18px;
+  text-align: start;
+  cursor: pointer;
+} */
+
+.items {
+  padding: 10px;
+  text-align: start;
+  color: #fff;
+  font-size: 25px;
 }
 
 .Name {

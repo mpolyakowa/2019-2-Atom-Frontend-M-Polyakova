@@ -138,19 +138,76 @@
 }
 
 .message {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
   margin-right: 10px;
   margin-bottom: 20px;
-  min-width: 10%;
-  max-width: 20%;
+  max-width: 40%;
   padding: 8px;
   min-height: 40px;
   color: rgba(0, 0, 0, 0.87);
   background-color: rgba(210, 36, 170, 0.17);
   align-self: flex-end;
-  word-wrap: break-word;
+  border-radius: 10px;
   animation-name: messageAppear;
   animation-duration: 1s;
+  flex-basis: content;
 }
+
+.messageText {
+  align-self: center;
+  word-wrap: break-word;
+  max-width: 75%;
+}
+
+.messageContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  margin-left: 10px;
+  margin-bottom: 5px;
+}
+
+.messagesMark {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: baseline;
+}
+
+/* .mark-left {
+  width: 2px;
+  height: 8px;
+  transform: rotate(-45deg);
+  background-color: #8e24aa;
+}
+
+.mark-right {
+  margin-left: 6px;
+  left: 6px;
+  width: 2px;
+  height: 16px;
+  transform: rotate(45deg);
+  background-color: #8e24aa;
+}
+
+.mark-left2 {
+  width: 2px;
+  height: 8px;
+  transform: rotate(-45deg);
+  background-color: #8e24aa;
+}
+
+.mark-right2 {
+  margin-left: 6px;
+  width: 2px;
+  height: 16px;
+  transform: rotate(45deg);
+  background-color: #8e24aa;
+}
+*/
 
 @keyframes messageAppear {
   from {
@@ -172,10 +229,13 @@
   justify-content: flex-end;
   overflow-y: auto;
 }
+
 .messageTime {
-  color: black;
+  color: grey;
   width: calc(100% - 4px);
+  font-size: 14px;
   text-align: right;
+  width: max-content;
 }
 
 .inputContainer {
