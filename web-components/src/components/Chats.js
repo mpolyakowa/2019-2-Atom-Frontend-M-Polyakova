@@ -1,7 +1,7 @@
 const template = document.createElement('template')
 template.innerHTML = `
     <style>
-        form {
+        .form {
             display: flex;
             flex-direction: column;
             height: 100 %;
