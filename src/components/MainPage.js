@@ -12,11 +12,11 @@ class MainPage extends Component {
     return (
       <Router history={history}>
         <Switch>
-          <Route exact path="/" component={Chat} />
-          <Route path="/profile">
+          <Route path="/" component={Chat} />
+          <Route path="profile">
             <Profile />
           </Route>
-          <Route path="/chats/:id">
+          <Route path="chats/:id">
             <Messages />
           </Route>
         </Switch>
