@@ -10,7 +10,7 @@ class MainPage extends Component {
     return (
       <Router>
         <Switch>
-          <Route exact path="/">
+          <Route path="/">
             <Chat />
           </Route>
           <Route path="/profile">
