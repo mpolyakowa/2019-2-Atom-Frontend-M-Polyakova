@@ -17,7 +17,7 @@ export function Chat() {
     for (let j = 0; j < child; j += 1) {
       children.push(
         <React.Fragment key={j}>
-          <Link to={`chats/${j}`}>
+          <Link to={`/chats/${j}`}>
             <button
               type="button"
               className="chat"

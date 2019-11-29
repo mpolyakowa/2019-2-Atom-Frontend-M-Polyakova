@@ -6,7 +6,7 @@ export function ChatHat() {
   const [vis, setVis] = useState(0)
   const list = (
     <ul className="list">
-      <Link to="profile">
+      <Link to="/profile">
         <div className="items">Profile</div>
       </Link>
     </ul>
