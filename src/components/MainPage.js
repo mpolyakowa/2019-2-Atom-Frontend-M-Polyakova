@@ -12,7 +12,7 @@ class MainPage extends Component {
     return (
       <Router history={history}>
         <Switch>
-          <Route path="/" component={Chat} />
+          <Route exact path="/" component={Chat} />
           <Route path="/profile">
             <Profile />
           </Route>
