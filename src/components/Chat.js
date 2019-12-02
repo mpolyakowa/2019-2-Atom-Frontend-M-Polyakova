@@ -1,9 +1,9 @@
-import React, { useState } from 'react'
-import PropTypes from 'prop-types'
+import React, { useState, useEffect } from 'react'
+import { Link } from 'react-router-dom'
 import '../styles/Chat.css'
 import { ChatHat } from './ChatHat'
 
-export function Chat(props) {
+export function Chat() {
   // localStorage.clear()
   const storage = localStorage.getItem('chats')
   const children = []
@@ -12,49 +12,51 @@ export function Chat(props) {
     chats = JSON.parse(storage)
   }
   const [child, setChild] = useState(chats.length)
-  function onChatClick(event) {
-    const id = event.currentTarget.value
-    props.update('messages', id)
-  }
+  useEffect(() => window.scrollTo(0, 0))
   if (chats) {
     for (let j = 0; j < child; j += 1) {
       children.push(
-        <button
-          type="button"
-          className="chat"
-          date={chats[j].Messages[chats[j].Messages.length - 1].Date}
-          value={j}
-          onClick={onChatClick}
-        >
-          <div className="chatMainContainer">
-            <div className="avatar" />
-            <div className="chatContainer">
-              <div className="name">{chats[j].Name}</div>
-              <div className="lastMessage">
-                {chats[j].Messages ? chats[j].Messages[chats[j].Messages.length - 1].text : ''}
+        <React.Fragment key={j}>
+          <Link to={`/chats/${j}`}>
+            <button
+              type="button"
+              className="chat"
+              date={chats[j].Messages[chats[j].Messages.length - 1].Date}
+              value={j}
+            >
+              <div className="chatMainContainer">
+                <div className="avatar" />
+                <div className="chatContainer">
+                  <div className="name">{chats[j].Name}</div>
+                  <div className="lastMessage">
+                    {chats[j].Messages ? chats[j].Messages[chats[j].Messages.length - 1].text : ''}
+                  </div>
+                </div>
+                <div className="chatContainer2">
+                  <div className="mark">
+                    <div className="mark-left" />
+                    <div className="mark-right" />
+                    <div className="mark-left2" />
+                    <div className="mark-right2" />
+                  </div>
+                  <div className="time">
+                    {chats[j].Messages ? chats[j].Messages[chats[j].Messages.length - 1].time : ''}
+                  </div>
+                </div>
               </div>
-            </div>
-            <div className="chatContainer2">
-              <div className="mark">
-                <div className="mark-left" />
-                <div className="mark-right" />
-                <div className="mark-left2" />
-                <div className="mark-right2" />
-              </div>
-              <div className="time">
-                {chats[j].Messages ? chats[j].Messages[chats[j].Messages.length - 1].time : ''}
-              </div>
-            </div>
-          </div>
-        </button>,
+            </button>
+          </Link>
+        </React.Fragment>,
       )
     }
   }
   function compare(a, b) {
-    if (a.props.date > b.props.date) {
+    const dateA = a.props.children.props.children.props.date
+    const dateB = b.props.children.props.children.props.date
+    if (dateA > dateB) {
       return 1
     }
-    if (a.props.date < b.props.date) {
+    if (dateA < dateB) {
       return -1
     }
     return 0
@@ -81,10 +83,6 @@ export function Chat(props) {
       </div>
     </React.Fragment>
   )
-}
-
-Chat.propTypes = {
-  update: PropTypes.func.isRequired,
 }
 
 function buildChat() {

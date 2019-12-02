@@ -1,38 +1,23 @@
 import React, { Component } from 'react'
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
+import { createBrowserHistory } from 'history'
 import { Chat } from './Chat'
 import { Messages } from './Messages'
+import { Profile } from './Profile'
 import '../styles/MainPage.css'
 
+export const history = createBrowserHistory()
 class MainPage extends Component {
-  constructor(props) {
-    super(props)
-    this.state = {
-      page: 'chats',
-      id: 0,
-    }
-    this.updatePage = (value, Id) => {
-      this.setState({ page: value, id: Id })
-    }
-  }
-
   render() {
-    const { id } = this.state
-    const { page } = this.state
-    if (page === 'chats') {
-      return (
-        <div className="mainContainer">
-          <Chat update={this.updatePage} />
-        </div>
-      )
-    }
-    if (page === 'messages') {
-      return (
-        <div className="mainContainer">
-          <Messages update={this.updatePage} id={id} />
-        </div>
-      )
-    }
-    return <h1>Messanger</h1>
+    return (
+      <Router history={history}>
+        <Switch>
+          <Route path="/profile" component={Profile} />
+          <Route path="/chats/:id" component={Messages} />
+          <Route path="/" component={Chat} />
+        </Switch>
+      </Router>
+    )
   }
 }
 

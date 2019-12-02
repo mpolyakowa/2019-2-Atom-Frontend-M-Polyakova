@@ -1,12 +1,14 @@
 import React, { useState } from 'react'
+import { Link } from 'react-router-dom'
 import '../styles/ChatHat.css'
 
 export function ChatHat() {
   const [vis, setVis] = useState(0)
   const list = (
-    <ul className="list" id={vis}>
-      <li>Create new chat</li>
-      <li>Settings</li>
+    <ul className="list">
+      <Link to="/profile">
+        <div className="items">Profile</div>
+      </Link>
     </ul>
   )
 

@@ -1,0 +1,148 @@
+.profileHat {
+  position: fixed;
+  width: 100%;
+  height: 10vh;
+  background-color: #8e24aa;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.profileBackBtn {
+  position: relative;
+  height: 60px;
+  width: 60px;
+  background-color: #8e24aa;
+  border: 0;
+  cursor: pointer;
+}
+
+.profileBackBtn:focus {
+  outline: 0;
+}
+
+.profileName {
+  flex-grow: 1;
+  margin-left: 15px;
+  color: #fff;
+}
+
+.markBtn {
+  position: relative;
+  height: 60px;
+  width: 60px;
+  background-color: #8e24aa;
+  border: 0;
+  cursor: pointer;
+}
+
+.markBtn:focus {
+  outline: 0;
+}
+
+.profile-mark-left {
+  width: 3px;
+  height: 16px;
+  transform: rotate(-45deg);
+  background-color: #fff;
+}
+
+.profile-mark-right {
+  margin-left: 11px;
+  width: 3px;
+  height: 26px;
+  transform: rotate(45deg);
+  background-color: #fff;
+}
+
+.profileAvatar {
+  width: 90px;
+  height: 90px;
+  margin-top: 15vh;
+}
+
+.profileContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  width: 100vw;
+}
+
+.fullNameContainer {
+  display: flex;
+  flex-direction: column;
+  min-height: 15vh;
+  height: 15vh;
+  width: 70vw;
+  margin-top: 40px;
+  background-color: rgb(211, 211, 228);
+  border-radius: 10px;
+}
+
+.usernameContainer {
+  display: flex;
+  flex-direction: column;
+  height: 15vh;
+  width: 70vw;
+  margin-top: 50px;
+  background-color: rgb(211, 211, 228);
+  border-radius: 10px;
+}
+
+.bioContainer {
+  display: flex;
+  flex-direction: column;
+  height: 20vh;
+  width: 70vw;
+  margin-top: 40px;
+  background-color: rgb(211, 211, 228);
+  border-radius: 10px;
+}
+
+.profileExplain {
+  font-size: 12px;
+  color: rgb(75, 75, 75);
+  margin: 8px;
+  margin-left: 15px;
+  align-self: flex-start;
+}
+
+.profileExplainInContainer {
+  display: flex;
+  flex-direction: column;
+  font-size: 12px;
+  color: rgb(75, 75, 75);
+  margin: 8px;
+  margin-left: calc(15vw + 15px);
+  align-self: flex-start;
+}
+
+.profileInput {
+  background: rgba(0, 0, 0, 0);
+  width: 80%;
+  flex-grow: 0.5;
+  margin-left: 20px;
+  border: 0;
+  /* border-bottom: 1px #000 solid; */
+  font-size: 20px;
+}
+
+.profileInput:focus {
+  outline: 0;
+}
+
+.bio {
+  background: rgba(0, 0, 0, 0);
+  width: 90%;
+  height: 70%;
+  margin-left: 20px;
+  border: 0;
+  /* border-bottom: 1px #000 solid; */
+  font-size: 20px;
+}
+
+.bio:focus {
+  outline: 0;
+}

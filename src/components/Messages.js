@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import PropTypes from 'prop-types'
+import { Link, useParams } from 'react-router-dom'
 import '../styles/Messages.css'
 
 function Draw() {
@@ -30,8 +30,8 @@ function Draw() {
   window.scrollTo(0, document.querySelector('.result').scrollHeight)
 }
 
-export function Messages(props) {
-  const { id } = props
+export function Messages() {
+  const { id } = useParams()
   const children = []
   const storage = localStorage.getItem('chats')
   const chats = JSON.parse(storage)
@@ -48,8 +48,16 @@ export function Messages(props) {
   for (let j = 0; j < messagesLen; j += 1) {
     children.push(
       <div className="message">
-        {chats[id].Messages[j].text}
-        <div className="messageTime">{chats[id].Messages[j].time}</div>
+        <div className="messageText">{chats[id].Messages[j].text}</div>
+        <div className="messageContainer">
+          <div className="messageTime">{chats[id].Messages[j].time}</div>
+          <div className="messagesMark">
+            <div className="mark-left" />
+            <div className="mark-right" />
+            <div className="mark-left2" />
+            <div className="mark-right2" />
+          </div>
+        </div>
       </div>,
     )
   }
@@ -57,11 +65,13 @@ export function Messages(props) {
     <React.Fragment key="Messages">
       <div className="screen" />
       <div className="top">
-        <button type="button" className="backBtn" onClick={() => props.update('chats', 0)}>
-          <div className="back_top" />
-          <div className="back_middle" />
-          <div className="back_bottom" />
-        </button>
+        <Link to="/">
+          <button type="button" className="backBtn">
+            <div className="back_top" />
+            <div className="back_middle" />
+            <div className="back_bottom" />
+          </button>{' '}
+        </Link>
         <div className="bigContainer">
           <div className="messagesHatAvatar"> </div>
           <div className="messagesHatContainer">
@@ -94,11 +104,6 @@ export function Messages(props) {
       </div>
     </React.Fragment>
   )
-}
-
-Messages.propTypes = {
-  id: PropTypes.string.isRequired,
-  update: PropTypes.func.isRequired,
 }
 
 export function buildMessage(value, id) {
