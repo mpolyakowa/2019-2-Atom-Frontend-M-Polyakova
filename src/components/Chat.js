@@ -3,8 +3,11 @@ import { Link } from 'react-router-dom'
 import '../styles/Chat.css'
 import { ChatHat } from './ChatHat'
 
-export function Chat() {
+const API_URL = 'http://127.0.0.1:8000/chats/get/10/'
+
+export function Chat(props) {
   // localStorage.clear()
+  // props.history.listen( (location, done) => alert("djdj") )
   const storage = localStorage.getItem('chats')
   const children = []
   let chats = []
@@ -12,47 +15,119 @@ export function Chat() {
     chats = JSON.parse(storage)
   }
   const [child, setChild] = useState(chats.length)
-  useEffect(() => window.scrollTo(0, 0))
+  const [messages, setMessages] = useState([])
+  useEffect(() => {
+    pollItems()
+    /* eslint-disable-next-line */
+  }, [])
+
+  const pollItems = () => {
+    fetch(`${API_URL}`)
+      .then((resp) => resp.json())
+      .then((data) => {
+        if (JSON.stringify(data) !== JSON.stringify(messages)) {
+          setMessages(data)
+        }
+      })
+  }
+
+  const t = setInterval(() => pollItems(), 1000)
+
+  useEffect(() => {
+    window.scrollTo(0, 0)
+    return () => {
+      clearInterval(t)
+    }
+  })
+  function parseDate(date) {
+    const date1 = date.split('T')
+    const date2 = date1[1].split(':')
+    const time = []
+    time.push((+date2.slice(0, 2)[0] + 3) % 24)
+    time.push(date2.slice(0, 2)[1])
+    return time.join(':')
+  }
+  // console.log(messages)
   if (chats) {
     for (let j = 0; j < child; j += 1) {
       children.push(
-        <React.Fragment key={j}>
-          <Link to={`/chats/${j}`}>
-            <button
-              type="button"
-              className="chat"
-              date={chats[j].Messages[chats[j].Messages.length - 1].Date}
-              value={j}
-            >
-              <div className="chatMainContainer">
-                <div className="avatar" />
-                <div className="chatContainer">
-                  <div className="name">{chats[j].Name}</div>
-                  <div className="lastMessage">
-                    {chats[j].Messages ? chats[j].Messages[chats[j].Messages.length - 1].text : ''}
-                  </div>
-                </div>
-                <div className="chatContainer2">
-                  <div className="mark">
-                    <div className="mark-left" />
-                    <div className="mark-right" />
-                    <div className="mark-left2" />
-                    <div className="mark-right2" />
-                  </div>
-                  <div className="time">
-                    {chats[j].Messages ? chats[j].Messages[chats[j].Messages.length - 1].time : ''}
-                  </div>
+        <Link to={`/chats/${j}`} key={`chat${j}`}>
+          <button type="button" className="chat" date={chats[j].Messages[chats[j].Messages.length - 1].Date} key={j}>
+            <div className="chatMainContainer">
+              <div className="avatar" />
+              <div className="chatContainer">
+                <div className="name">{chats[j].Name}</div>
+                <div className="lastMessage">
+                  {chats[j].Messages ? chats[j].Messages[chats[j].Messages.length - 1].text : ''}
                 </div>
               </div>
-            </button>
-          </Link>
-        </React.Fragment>,
+              <div className="chatContainer2">
+                <div className="mark">
+                  <div className="mark-left" />
+                  <div className="mark-right" />
+                  <div className="mark-left2" />
+                  <div className="mark-right2" />
+                </div>
+                <div className="time">
+                  {chats[j].Messages ? chats[j].Messages[chats[j].Messages.length - 1].time : ''}
+                </div>
+              </div>
+            </div>
+          </button>
+        </Link>,
       )
     }
   }
+  children.push(
+    <Link to="/backend" key="back">
+      <button
+        type="button"
+        className="chat"
+        /* eslint-disable-next-line */
+        date={
+          messages.data
+            ? messages.data.length
+              ? messages.data[messages.data.length - 1].added_at
+              : messages.date
+            : messages.date
+        }
+        // value={j}
+        key="back"
+      >
+        <div className="chatMainContainer">
+          <div className="avatar" />
+          <div className="chatContainer">
+            <div className="name">{messages.name}</div>
+            <div className="lastMessage">
+              {/* eslint-disable-next-line */}
+              {messages.data ? (messages.data.length ? messages.data[messages.data.length - 1].content : '') : ''}
+            </div>
+          </div>
+          <div className="chatContainer2">
+            <div className="mark">
+              <div className="mark-left" />
+              <div className="mark-right" />
+              <div className="mark-left2" />
+              <div className="mark-right2" />
+            </div>
+            <div className="time">
+              {/* eslint-disable-next-line */}
+              {messages.data
+                ? messages.data.length
+                  ? parseDate(messages.data[messages.data.length - 1].date)
+                  : ''
+                : ''}
+            </div>
+          </div>
+        </div>
+      </button>
+    </Link>,
+  )
+  // console.log(children)
   function compare(a, b) {
     const dateA = a.props.children.props.children.props.date
     const dateB = b.props.children.props.children.props.date
+
     if (dateA > dateB) {
       return 1
     }

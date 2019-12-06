@@ -4,6 +4,7 @@ import { createBrowserHistory } from 'history'
 import { Chat } from './Chat'
 import { Messages } from './Messages'
 import { Profile } from './Profile'
+import { BackMessages } from './BackendMessages'
 import '../styles/MainPage.css'
 
 export const history = createBrowserHistory()
@@ -13,6 +14,7 @@ class MainPage extends Component {
       <Router history={history}>
         <Switch>
           <Route path="/profile" component={Profile} />
+          <Route path="/backend" component={BackMessages} />
           <Route path="/chats/:id" component={Messages} />
           <Route path="/" component={Chat} />
         </Switch>

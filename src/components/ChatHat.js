@@ -34,7 +34,7 @@ export function ChatHat() {
       </div>
       <div className="searchInput">
         {' '}
-        <input type="text" value="" />{' '}
+        <input type="text" />{' '}
       </div>
       <button type="button" className="search" onClick={onSearchBtnClick}>
         <div className="circle"> </div>
