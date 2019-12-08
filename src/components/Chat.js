@@ -84,13 +84,7 @@ export function Chat(props) {
         type="button"
         className="chat"
         /* eslint-disable-next-line */
-        date={
-          messages.data
-            ? messages.data.length
-              ? messages.data[messages.data.length - 1].added_at
-              : messages.date
-            : messages.date
-        }
+        date={messages.data ? messages.data[messages.data.length - 1].added_at : messages.date}
         // value={j}
         key="back"
       >
@@ -100,7 +94,7 @@ export function Chat(props) {
             <div className="name">{messages.name}</div>
             <div className="lastMessage">
               {/* eslint-disable-next-line */}
-              {messages.data ? (messages.data.length ? messages.data[messages.data.length - 1].content : '') : ''}
+              {messages.data ? messages.data[messages.data.length - 1].content : ''}
             </div>
           </div>
           <div className="chatContainer2">
@@ -112,11 +106,7 @@ export function Chat(props) {
             </div>
             <div className="time">
               {/* eslint-disable-next-line */}
-              {messages.data
-                ? messages.data.length
-                  ? parseDate(messages.data[messages.data.length - 1].date)
-                  : ''
-                : ''}
+              {messages.data ? parseDate(messages.data[messages.data.length - 1].date) : ''}
             </div>
           </div>
         </div>
