@@ -12,12 +12,12 @@ export function BackMessages(props) {
   const messageEndRef = useRef(null)
   const children = []
   if (messages.data) {
-    for (let j = 0; j < messages.data.length; j += 1) {
+    for (const [idx, message] of messages.data.entries()) {
       children.push(
-        <div className="message" key={j}>
-          <div className="messageText">{messages.data[j].content}</div>
+        <div className="message" key={idx}>
+          <div className="messageText">{message.content}</div>
           <div className="messageContainer">
-            <div className="messageTime">{parseDate(messages.data[j].date)}</div>
+            <div className="messageTime">{parseDate(message.date)}</div>
             <div className="messagesMark">
               <div className="mark-left" />
               <div className="mark-right" />

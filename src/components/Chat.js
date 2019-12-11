@@ -7,7 +7,6 @@ const API_URL = 'http://127.0.0.1:8000/chats/get/10/'
 
 export function Chat(props) {
   // localStorage.clear()
-  // props.history.listen( (location, done) => alert("djdj") )
   const storage = localStorage.getItem('chats')
   const children = []
   let chats = []
@@ -47,19 +46,18 @@ export function Chat(props) {
     time.push(date2.slice(0, 2)[1])
     return time.join(':')
   }
-  // console.log(messages)
   if (chats) {
     for (let j = 0; j < child; j += 1) {
+      const chat = chats[j]
+      const { Messages } = chat
       children.push(
         <Link to={`/chats/${j}`} key={`chat${j}`}>
-          <button type="button" className="chat" date={chats[j].Messages[chats[j].Messages.length - 1].Date} key={j}>
+          <button type="button" className="chat" date={Messages[Messages.length - 1].Date} key={j}>
             <div className="chatMainContainer">
               <div className="avatar" />
               <div className="chatContainer">
-                <div className="name">{chats[j].Name}</div>
-                <div className="lastMessage">
-                  {chats[j].Messages ? chats[j].Messages[chats[j].Messages.length - 1].text : ''}
-                </div>
+                <div className="name">{chat.Name}</div>
+                <div className="lastMessage">{Messages ? Messages[Messages.length - 1].text : ''}</div>
               </div>
               <div className="chatContainer2">
                 <div className="mark">
@@ -68,9 +66,7 @@ export function Chat(props) {
                   <div className="mark-left2" />
                   <div className="mark-right2" />
                 </div>
-                <div className="time">
-                  {chats[j].Messages ? chats[j].Messages[chats[j].Messages.length - 1].time : ''}
-                </div>
+                <div className="time">{Messages ? Messages[Messages.length - 1].time : ''}</div>
               </div>
             </div>
           </button>
@@ -78,24 +74,15 @@ export function Chat(props) {
       )
     }
   }
+  const { data, date, name } = messages
   children.push(
     <Link to="/backend" key="back">
-      <button
-        type="button"
-        className="chat"
-        /* eslint-disable-next-line */
-        date={messages.data ? messages.data[messages.data.length - 1].added_at : messages.date}
-        // value={j}
-        key="back"
-      >
+      <button type="button" className="chat" date={data ? data[data.length - 1].added_at : date} key="back">
         <div className="chatMainContainer">
           <div className="avatar" />
           <div className="chatContainer">
-            <div className="name">{messages.name}</div>
-            <div className="lastMessage">
-              {/* eslint-disable-next-line */}
-              {messages.data ? messages.data[messages.data.length - 1].content : ''}
-            </div>
+            <div className="name">{name}</div>
+            <div className="lastMessage">{data ? data[data.length - 1].content : ''}</div>
           </div>
           <div className="chatContainer2">
             <div className="mark">
@@ -104,10 +91,7 @@ export function Chat(props) {
               <div className="mark-left2" />
               <div className="mark-right2" />
             </div>
-            <div className="time">
-              {/* eslint-disable-next-line */}
-              {messages.data ? parseDate(messages.data[messages.data.length - 1].date) : ''}
-            </div>
+            <div className="time">{data ? parseDate(data[data.length - 1].date) : ''}</div>
           </div>
         </div>
       </button>
