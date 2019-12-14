@@ -7,7 +7,6 @@
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  z-index: 1;
 }
 
 .messagesHatContainer {
@@ -144,7 +143,7 @@
   justify-content: space-between;
   margin-right: 10px;
   margin-bottom: 20px;
-  max-width: 45%;
+  max-width: 40%;
   padding: 8px;
   min-height: 40px;
   color: rgba(0, 0, 0, 0.87);
@@ -252,7 +251,7 @@
   position: fixed;
   bottom: 0;
   outline: none;
-  width: calc(100% - 70px);
+  width: calc(100% - 30px);
   height: 30px;
   border-top: 1px solid rgba(25, 25, 25, 0.32);
 }
@@ -260,16 +259,12 @@
 .inputClip {
   position: fixed;
   height: 34px;
-  width: 70px;
+  width: 30px;
   bottom: 0;
   outline: none;
-  left: calc(100% - 70px);
-  /* display: inline-block; */
-  display: flex;
-  flex-direction: row;
+  left: calc(100% - 30px);
+  display: inline-block;
   background-color: #fff;
-  align-items: center;
-  justify-content: space-evenly;
   border-top: 1px solid rgba(25, 25, 25, 0.32);
 }
 
@@ -292,7 +287,7 @@
 
 @keyframes mainAppear {
   from {
-    z-index: 2;
+    z-index: 1;
     background: rgb(255, 255, 255);
   }
 
@@ -300,39 +295,4 @@
     z-index: 0;
     background: rgba(255, 255, 255, 0);
   }
-}
-
-.compassBtn {
-  width: 20px;
-  height: 20px;
-  cursor: pointer;
-}
-
-.audioBtn {
-  width: 20px;
-  height: 20px;
-  cursor: pointer;
-}
-
-.attachBtn {
-  display: none;
-}
-
-.labelForAttach {
-  background: url('../images/attach.svg');
-  width: 20px;
-  height: 20px;
-  cursor: pointer;
-}
-
-.compassBtn:focus {
-  outline: 0;
-}
-
-.attachBtn:focus {
-  outline: 0;
-}
-
-.audioBtn:focus {
-  outline: 0;
 }
