@@ -133,6 +133,7 @@ export function Chat(props) {
     </React.Fragment>
   )
 }
+//  function for new chat build when create button is clicked
 
 function buildChat() {
   // eslint-disable-next-line no-alert
