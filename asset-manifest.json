@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/2019-2-Atom-Frontend-M-Polyakova/static/css/main.4f90142b.chunk.css",
+    "main.js": "/2019-2-Atom-Frontend-M-Polyakova/static/js/main.2bd07656.chunk.js",
+    "main.js.map": "/2019-2-Atom-Frontend-M-Polyakova/static/js/main.2bd07656.chunk.js.map",
+    "runtime-main.js": "/2019-2-Atom-Frontend-M-Polyakova/static/js/runtime-main.7cb689ba.js",
+    "runtime-main.js.map": "/2019-2-Atom-Frontend-M-Polyakova/static/js/runtime-main.7cb689ba.js.map",
+    "static/js/2.3764106a.chunk.js": "/2019-2-Atom-Frontend-M-Polyakova/static/js/2.3764106a.chunk.js",
+    "static/js/2.3764106a.chunk.js.map": "/2019-2-Atom-Frontend-M-Polyakova/static/js/2.3764106a.chunk.js.map",
+    "index.html": "/2019-2-Atom-Frontend-M-Polyakova/index.html",
+    "precache-manifest.c7202c9f9a226939e7485dc2a7e0d92d.js": "/2019-2-Atom-Frontend-M-Polyakova/precache-manifest.c7202c9f9a226939e7485dc2a7e0d92d.js",
+    "service-worker.js": "/2019-2-Atom-Frontend-M-Polyakova/service-worker.js",
+    "static/css/main.4f90142b.chunk.css.map": "/2019-2-Atom-Frontend-M-Polyakova/static/css/main.4f90142b.chunk.css.map",
+    "static/media/avatar.svg": "/2019-2-Atom-Frontend-M-Polyakova/static/media/avatar.706cfa3f.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.7cb689ba.js",
+    "static/js/2.3764106a.chunk.js",
+    "static/css/main.4f90142b.chunk.css",
+    "static/js/main.2bd07656.chunk.js"
+  ]
+}
